@@ -425,88 +425,28 @@
 
 
     <!-- All events in one Trigger -->
-    <amp-analytics type="gtag" data-credentials="include">
-        <script type="application/json">
-        {
-            "triggers": {
-                "trackStoryloaded": {
-                    "on": "story-content-loaded",
-                    "vars": {
-                        "send_to": ["G-06YPTYXR3K"],
-                        "event_name": "story_page_load",
-                        "client_ID": "CLIENT_ID(_ga).",
-                        "totalStoryCount": "${storyPageCount}",
-                        "client_ID": "CLIENT_ID(_ga).",
-                        "title": "${title}",
-                        "storyIsMuted": "${storyIsMuted}"
-                    }
-                },
-                "storyPageVisible": {
-                    "on": "story-page-visible",
-                    "vars": {
-                        "send_to": ["G-06YPTYXR3K"],
-                        "event_name": "story_pages_viewed",
-                        "client_ID": "CLIENT_ID(_ga).",
-                        "storyPageIndex": "${storyPageIndex}",
-                        "storyPageId": "${storyPageId}",
-                        "totalStoryCount": "${storyPageCount}",
-                        "storyProgress": "${storyProgress}",
-                        "title": "${title}",                        
-                        "storyIsMuted": "${storyIsMuted}",
-                        "storyMode": "${storyAdvancementMode}" 
-                    }
-                },
-                "storyLastPageVisible": {
-                    "on": "story-last-page-visible",
-                    "vars": {
-                        "send_to": ["G-06YPTYXR3K"],
-                        "event_name": "story_completed",
-                        "client_ID": "CLIENT_ID(_ga).",
-                        "storyPageIndex": "${storyPageIndex}",
-                        "storyPageId": "${storyPageId}",
-                        "totalStoryCount": "${storyPageCount}",
-                        "storyProgress": "${storyProgress}",
-                        "title": "${title}",                        
-                        "storyIsMuted": "${storyIsMuted}",
-                        "storyMode": "${storyAdvancementMode}" 
-                    }
-                },
-                "storyAudioMuted": {
-                    "on": "story-audio-muted",
-                    "vars": {
-                        "send_to": ["G-06YPTYXR3K"],
-                        "event_name": "story_muted",
-                        "client_ID": "CLIENT_ID(_ga).",
-                        "storyPageIndex": "${storyPageIndex}",
-                        "storyPageId": "${storyPageId}",
-                        "totalStoryCount": "${storyPageCount}",
-                        "storyProgress": "${storyProgress}",
-                        "title": "${title}",                        
-                        "storyIsMuted": "${storyIsMuted}",
-                        "storyMode": "${storyAdvancementMode}" 
-                    }
-                },     
-                "storyAudioUnmuted": {
-                     "on": "story-audio-unmuted",
-                     "vars": { 
-                        "send_to": ["G-06YPTYXR3K"],
-                        "event_name": "story_unmuted",
-                        "client_ID": "CLIENT_ID(_ga).",
-                        "storyPageIndex": "${storyPageIndex}",
-                        "storyPageId": "${storyPageId}",
-                        "totalStoryCount": "${storyPageCount}",
-                        "storyProgress": "${storyProgress}",
-                        "title": "${title}",                        
-                        "storyIsMuted": "${storyIsMuted}",
-                        "storyMode": "${storyAdvancementMode}" 
-                    }
-                    },
-                    "storyAttach": {
-                        "on": "story-page-attachment-enter",
+<!-- <amp-analytics type="gtag" data-credentials="include">
+            <script type="application/json">
+            {
+                "triggers": {
+                    "trackStoryloaded": {
+                        "on": "story-content-loaded",
                         "vars": {
                             "send_to": ["G-06YPTYXR3K"],
+                            "event_name": "story_page_load",
                             "client_ID": "CLIENT_ID(_ga).",
-                            "event_name": "story_page_attachment",
+                            "totalStoryCount": "${storyPageCount}",
+                            "client_ID": "CLIENT_ID(_ga).",
+                            "title": "${title}",
+                            "storyIsMuted": "${storyIsMuted}"
+                        }
+                    },
+                    "storyPageVisible": {
+                        "on": "story-page-visible",
+                        "vars": {
+                            "send_to": ["G-06YPTYXR3K"],
+                            "event_name": "story_pages_viewed",
+                            "client_ID": "CLIENT_ID(_ga).",
                             "storyPageIndex": "${storyPageIndex}",
                             "storyPageId": "${storyPageId}",
                             "totalStoryCount": "${storyPageCount}",
@@ -516,12 +456,12 @@
                             "storyMode": "${storyAdvancementMode}" 
                         }
                     },
-                    "trackClickThrough": {
-                        "on": "story-click-through",
+                    "storyLastPageVisible": {
+                        "on": "story-last-page-visible",
                         "vars": {
                             "send_to": ["G-06YPTYXR3K"],
+                            "event_name": "story_completed",
                             "client_ID": "CLIENT_ID(_ga).",
-                            "event_name": "story_click_through",
                             "storyPageIndex": "${storyPageIndex}",
                             "storyPageId": "${storyPageId}",
                             "totalStoryCount": "${storyPageCount}",
@@ -531,13 +471,12 @@
                             "storyMode": "${storyAdvancementMode}" 
                         }
                     },
-                    "trackShareOpen": {
-                        "on": "story-open",
-                        "tagName": "amp-story-share-menu",
+                    "storyAudioMuted": {
+                        "on": "story-audio-muted",
                         "vars": {
                             "send_to": ["G-06YPTYXR3K"],
+                            "event_name": "story_muted",
                             "client_ID": "CLIENT_ID(_ga).",
-                            "event_name": "story_share_menu_click",
                             "storyPageIndex": "${storyPageIndex}",
                             "storyPageId": "${storyPageId}",
                             "totalStoryCount": "${storyPageCount}",
@@ -546,11 +485,74 @@
                             "storyIsMuted": "${storyIsMuted}",
                             "storyMode": "${storyAdvancementMode}" 
                         }
-                    }              
+                    },     
+                    "storyAudioUnmuted": {
+                         "on": "story-audio-unmuted",
+                         "vars": { 
+                            "send_to": ["G-06YPTYXR3K"],
+                            "event_name": "story_unmuted",
+                            "client_ID": "CLIENT_ID(_ga).",
+                            "storyPageIndex": "${storyPageIndex}",
+                            "storyPageId": "${storyPageId}",
+                            "totalStoryCount": "${storyPageCount}",
+                            "storyProgress": "${storyProgress}",
+                            "title": "${title}",                        
+                            "storyIsMuted": "${storyIsMuted}",
+                            "storyMode": "${storyAdvancementMode}" 
+                        }
+                        },
+                        "storyAttach": {
+                            "on": "story-page-attachment-enter",
+                            "vars": {
+                                "send_to": ["G-06YPTYXR3K"],
+                                "client_ID": "CLIENT_ID(_ga).",
+                                "event_name": "story_page_attachment",
+                                "storyPageIndex": "${storyPageIndex}",
+                                "storyPageId": "${storyPageId}",
+                                "totalStoryCount": "${storyPageCount}",
+                                "storyProgress": "${storyProgress}",
+                                "title": "${title}",                        
+                                "storyIsMuted": "${storyIsMuted}",
+                                "storyMode": "${storyAdvancementMode}" 
+                            }
+                        },
+                        "trackClickThrough": {
+                            "on": "story-click-through",
+                            "vars": {
+                                "send_to": ["G-06YPTYXR3K"],
+                                "client_ID": "CLIENT_ID(_ga).",
+                                "event_name": "story_click_through",
+                                "storyPageIndex": "${storyPageIndex}",
+                                "storyPageId": "${storyPageId}",
+                                "totalStoryCount": "${storyPageCount}",
+                                "storyProgress": "${storyProgress}",
+                                "title": "${title}",                        
+                                "storyIsMuted": "${storyIsMuted}",
+                                "storyMode": "${storyAdvancementMode}" 
+                            }
+                        },
+                        "trackShareOpen": {
+                            "on": "story-open",
+                            "tagName": "amp-story-share-menu",
+                            "vars": {
+                                "send_to": ["G-06YPTYXR3K"],
+                                "client_ID": "CLIENT_ID(_ga).",
+                                "event_name": "story_share_menu_click",
+                                "storyPageIndex": "${storyPageIndex}",
+                                "storyPageId": "${storyPageId}",
+                                "totalStoryCount": "${storyPageCount}",
+                                "storyProgress": "${storyProgress}",
+                                "title": "${title}",                        
+                                "storyIsMuted": "${storyIsMuted}",
+                                "storyMode": "${storyAdvancementMode}" 
+                            }
+                        }              
+                }
             }
-        }
-        </script>
-    </amp-analytics>
+            </script>
+        </amp-analytics> -->
+
+
 
 
 
