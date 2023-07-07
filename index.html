@@ -1,0 +1,718 @@
+<!--
+  ## Introduction
+
+  Stories support only a [subset of the media types](/content/amp-dev/documentation/components/reference/amp-story.md#children-of-amp-story-grid-layer) available in AMPHTML. This samples gives an overview on which are supported.
+-->
+<!-- -->
+<!doctype html>
+<html amp lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-story" src="https://cdn.ampproject.org/v0/amp-story-1.0.js"></script>
+    <title>Supported media types in AMP Stories</title>
+    <meta name="description" content="Get started with amp-story">
+    <script async custom-element="amp-audio" src="https://cdn.ampproject.org/v0/amp-audio-0.1.js"></script>
+    <script async custom-element="amp-gfycat" src="https://cdn.ampproject.org/v0/amp-gfycat-0.1.js"></script>
+    <script async custom-element="amp-video" src="https://cdn.ampproject.org/v0/amp-video-0.1.js"></script>
+
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+
+
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <link rel="canonical"
+        href="https://amp.dev/documentation/examples/multimedia-animations/supported_media_types_in_amp_stories/index.html">
+    <style amp-boilerplate>
+        body {
+            -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+            -moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+            -ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+            animation: -amp-start 8s steps(1, end) 0s 1 normal both
+        }
+
+        @-webkit-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @-moz-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @-ms-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @-o-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+    </style><noscript>
+        <style amp-boilerplate>
+            body {
+                -webkit-animation: none;
+                -moz-animation: none;
+                -ms-animation: none;
+                animation: none
+            }
+        </style>
+    </noscript>
+    <style amp-custom>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        amp-story-page h1 {
+            background: white;
+            padding: 8px 16px;
+            border-radius: 8px;
+        }
+
+        amp-story-page {
+            background: white;
+        }
+
+        amp-story-grid-layer {
+            align-items: center;
+            justify-items: center;
+        }
+    </style>
+    <style amp-custom>
+        * {
+            box-sizing: border-box;
+        }
+
+        amp-story * {
+            font-family: 'Helvitica Nueve', sans-serif;
+            color: white;
+        }
+
+        amp-story-page {
+            background: white;
+        }
+
+        amp-story h1 {
+            font-size: 46px;
+        }
+
+        amp-story h2 {
+            font-size: 36px;
+        }
+
+        amp-story p {
+            font-size: 16px;
+            line-height: 24px;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .bottom {
+            align-content: end;
+        }
+
+        .medium {
+            font-weight: 600;
+        }
+
+        .first {
+            padding-top: 65px;
+        }
+
+        .last {
+            padding-bottom: 65px;
+        }
+
+        .blue {
+            color: #4285F4;
+        }
+
+        .twenty-px {
+            font-size: 20px;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .lh30 {
+            line-height: 30px;
+        }
+
+        .icon {
+            background-image: url(https://amp.dev/static/samples/img/AMP-Brand-White-Icon.svg);
+            background-repeat: no-repeat;
+            background-size: 50px 50px;
+            height: 50px;
+            object-fit: contain;
+            width: 50px;
+        }
+
+        .byline {
+            letter-spacing: 1.28px;
+            padding-bottom: 58px;
+        }
+
+        .introducing * {
+            line-height: 42px;
+        }
+
+        .subtitle-page {
+            padding-top: 80px;
+        }
+
+        .button {
+            align-items: center;
+            border: 4px solid #FFFFFF;
+            color: #FFFFFF;
+            display: flex;
+            height: 60px;
+            margin: 0 auto;
+            max-width: 240px;
+            text-decoration: none;
+        }
+
+        .button p {
+            font-size: 20px;
+            width: 100%;
+        }
+
+        amp-ad[template="image-template"] img,
+        amp-ad[template="video-template"] video {
+            object-fit: cover;
+        }
+
+        ::cue {
+            background-color: rgba(0, 0, 0, 0.75);
+            font-size: 24px;
+            line-height: 1.5;
+        }
+    </style>
+
+
+
+
+
+</head>
+
+<body>
+    <amp-story standalone title="Stories in AMP - Media" publisher="AMP Project"
+        publisher-logo-src="https://amp.dev/favicons/coast-228x228.png"
+        poster-portrait-src="https://picsum.photos/300/400" poster-square-src="https://picsum.photos/300/300"
+        poster-landscape-src="https://picsum.photos/400/300">
+
+
+
+
+        <amp-story-page id="page-3" auto-advance-after="7s">
+            <amp-story-grid-layer template="fill">
+                <amp-video autoplay loop width="400" height="750" poster="https://amp.dev/static/samples/img/poster.jpg"
+                    layout="fill">
+                    <source src="https://amp.dev/static/samples/video/stamp-animation.mp4" type="video/mp4">
+                </amp-video>
+            </amp-story-grid-layer>
+            <amp-story-grid-layer template="vertical" class="bottom">
+                <div class="introducing">
+                    <p class="bold blue twenty-px center">Introducing</p>
+                    <h2 class="bold blue center last">AMP Stories</h2>
+                </div>
+            </amp-story-grid-layer>
+        </amp-story-page>
+
+        <!-- No use -->
+        <!-- ## amp-img -->
+        <!-- Images are fully supported via the `amp-img` extension. -->
+        <!-- <amp-story-page id="amp-img" auto-advance-after="7s">
+            <amp-story-grid-layer template="fill">
+                <amp-img src="https://unsplash.it/720/320/?image=10" grid-area="middle-third" u width="720" height="320"
+                    layout="responsive" alt="..."></amp-img>
+            </amp-story-grid-layer>
+            <amp-story-grid-layer template="thirds">
+          <h1 grid-area="upper-third"></h1>
+        </amp-story-grid-layer>
+        </amp-story-page> -->
+
+        <!-- ## amp-video -->
+        <!-- The only way to embed videos is currently via the [amp-video](/content/amp-dev/documentation/components/reference/amp-video-v0.1.md) extension. -->
+        <amp-story-page id="amp-video" auto-advance-after="7s">
+            <amp-story-grid-layer template="fill">
+                <amp-video autoplay loop grid-area="middle-third" width="720" height="960"
+                    poster="https://amp.dev/static/samples/img/story_video_dog_cover.jpg" layout="responsive" alt="...">
+                    <source src="https://amp.dev/static/samples/video/story_video_dog.mp4" type="video/mp4">
+                </amp-video>
+            </amp-story-grid-layer>
+            <!-- <amp-story-grid-layer template="thirds">
+          <h1 grid-area="upper-third">amp-video</h1>
+        </amp-story-grid-layer> -->
+        </amp-story-page>
+        <!-- Note that `amp-video` extension has different validation rules when used within an AMP Story—both the `autoplay` and `poster` attributes are required. -->
+
+        <!-- ## background-audio -->
+        <!-- You can playback audio for a single `amp-story-page` using the [`background-audio`](/content/amp-dev/documentation/components/reference/amp-story.html#background-audio-[optional]_1) attribute on the `amp-story-page` element. This attribute can also be applied to the `amp-story` element to playback audio across an [`amp-story`](/content/amp-dev/documentation/components/reference/amp-story.html#background-audio-[optional]).
+      -->
+
+        <amp-story-page id="page-5" auto-advance-after="stamp-vid">
+            <amp-story-grid-layer template="fill">
+                <amp-video autoplay id="stamp-vid" width="400" height="750"
+                    poster="https://amp.dev/static/samples/img/poster2.jpg" layout="fill">
+                    <source src="https://amp.dev/static/samples/video/stamp.mp4" type="video/mp4">
+                    <track default src="https://amp.dev/static/samples/video/stamp.vtt" srclang="en">
+                </amp-video>
+            </amp-story-grid-layer>
+            <amp-story-grid-layer template="thirds">
+                <div grid-area="lower-third" class="subtitle-page">
+                    <p class="bold twenty-px center">
+                        Telling stories with AMP.
+                    </p>
+                </div>
+            </amp-story-grid-layer>
+        </amp-story-page>
+
+
+        <!-- <amp-story-page id="background-audio" auto-advance-after="7s"
+            background-audio="https://ia801402.us.archive.org/16/items/EDIS-SRP-0197-06/EDIS-SRP-0197-06.mp3">
+            <amp-story-grid-layer template="thirds">
+                <h1 grid-area="upper-third">background-audio</h1>
+            </amp-story-grid-layer>
+        </amp-story-page> -->
+
+        <!-- ## amp-gfycat -->
+        <!-- Embed animated GIFs from https://gfycat.com/. -->
+        <amp-story-page id="amp-gfycat" auto-advance-after="7s">
+            <amp-story-grid-layer template="fill">
+                <amp-gfycat data-gfyid="TautWhoppingCougar" width="640" height="360" layout="responsive">
+                </amp-gfycat>
+            </amp-story-grid-layer>
+            <amp-story-grid-layer template="vertical">
+                <h1 grid-area="upper-third">amp-gfycat</h1>
+            </amp-story-grid-layer>
+        </amp-story-page>
+
+
+        <amp-story-page id="page-1" auto-advance-after="7s">
+            <amp-story-grid-layer template="fill">
+                <amp-video autoplay loop width="400" height="750"
+                    poster="https://amp.dev/static/samples/img/poster0.png" layout="fill">
+                    <source src="https://amp.dev/static/samples/video/p1.mp4" type="video/mp4">
+                </amp-video>
+            </amp-story-grid-layer>
+        </amp-story-page>
+
+
+
+
+
+
+
+
+        <amp-story-page id="page-12" auto-advance-after="7s">
+            <amp-story-grid-layer template="fill">
+
+                <amp-img width="400" height="750" layout="fill"
+                    src="https://amp.dev/static/samples/img/roadshow.jpg"></amp-img>
+            </amp-story-grid-layer>
+            <amp-story-cta-layer>
+                <a href="https://gtmanalytics-634b6.web.app/" class="button medium center">
+                    <p class="20px">Sign up Now</p>
+                </a>
+            </amp-story-cta-layer>
+        </amp-story-page>
+
+
+        <amp-story-page
+            class="mid_screen ms-st-pg i-amphtml-element i-amphtml-layout-container i-amphtml-built i-amphtml-layout i-amphtml-story-page-loaded"
+            id="mid_screen" i-amphtml-layout="container" role="region" distance="0" aria-hidden="false"
+            i-amphtml-visited="" active="" auto-advance-after="7s">
+            <amp-story-grid-layer
+                class="recircular i-amphtml-element i-amphtml-layout-container i-amphtml-story-layer i-amphtml-built i-amphtml-layout"
+                id="rcontent" template="vertical" i-amphtml-layout="container">
+                <div class="letterbox">
+                    <div class="mid-heading">
+                        <h3>You may also like</h3>
+                    </div>
+                    <div class="rc1 pa"><a class="story-tooltip pa" data-tooltip-text="Click Here" role="link" id="rc1"
+                            href="https://rajdesai09.github.io/ampWebstories/"
+                            data-vars-ctalink="https://rajdesai09.github.io/ampWebstories/" i-amphtml-orig-tabindex="0"
+                            tabindex="0"><amp-img
+                                class="img-fill pa i-amphtml-element i-amphtml-layout-responsive i-amphtml-layout-size-defined i-amphtml-built i-amphtml-layout"
+                                layout="responsive" height="1350" width="1080"
+                                alt="Viral Pics Of Marathi Stars From The Week"
+                                src="https://images.unsplash.com/photo-1666919643134-d97687c1826c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=871&q=80"
+                                i-amphtml-layout="responsive"><i-amphtml-sizer slot="i-amphtml-svc"
+                                    style="padding-top: 125%;"></i-amphtml-sizer><img decoding="async"
+                                    alt="Viral Pics Of Marathi Stars From The Week"
+                                    src="https://images.unsplash.com/photo-1666919643134-d97687c1826c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=871&q=80"
+                                    class="i-amphtml-fill-content i-amphtml-replaced-content"></amp-img></a></div>
+            </amp-story-grid-layer></amp-story-page>
+
+
+
+<!-- Story content loaded event Tracking -->
+<amp-analytics type="gtag" data-credentials="include">
+    <script type="application/json">
+        {
+            "triggers": {
+                "trackStoryloaded": {
+                    "on": "story-content-loaded",
+                    "vars": {
+                        "send_to": ["G-2Y1PP6JNH1"],
+                        "event_name": "story_page_load",
+                        "client_ID": "CLIENT_ID(_ga).",
+                        "totalStoryCount": "${storyPageCount}",
+                        "client_ID": "CLIENT_ID(_ga).",
+                        "title": "${title}",
+                        "storyIsMuted": "${storyIsMuted}"
+                    }
+                }
+            }
+        }
+    </script>
+</amp-analytics>    
+
+<!-- Story page visible event Tracking -->
+<amp-analytics type="gtag" data-credentials="include">
+    <script type="application/json">
+        {
+            "triggers": {
+                "storyPageVisible": {
+                    "on": "story-page-visible",
+                    "vars": {
+                        "send_to": ["G-2Y1PP6JNH1"],
+                        "event_name": "story_pages_viewed",
+                        "client_ID": "CLIENT_ID(_ga).",
+                        "storyPageIndex": "${storyPageIndex}",
+                        "storyPageId": "${storyPageId}",
+                        "totalStoryCount": "${storyPageCount}",
+                        "storyProgress": "${storyProgress}",
+                        "title": "${title}",                        
+                        "storyIsMuted": "${storyIsMuted}",
+                        "storyMode": "${storyAdvancementMode}" 
+                    }
+                }
+            }
+        }
+    </script>
+</amp-analytics> 
+
+<!-- Story last page visible event Tracking -->
+<amp-analytics type="gtag" data-credentials="include">
+    <script type="application/json">
+        {
+            "triggers": {
+                "storyLastPageVisible": {
+                    "on": "story-last-page-visible",
+                    "vars": {
+                        "send_to": ["G-2Y1PP6JNH1"],
+                        "event_name": "story_completed",
+                        "client_ID": "CLIENT_ID(_ga).",
+                        "storyPageIndex": "${storyPageIndex}",
+                        "storyPageId": "${storyPageId}",
+                        "totalStoryCount": "${storyPageCount}",
+                        "storyProgress": "${storyProgress}",
+                        "title": "${title}",                        
+                        "storyIsMuted": "${storyIsMuted}",
+                        "storyMode": "${storyAdvancementMode}" 
+                    }
+                }
+            }
+        }
+    </script>
+</amp-analytics> 
+
+<!-- Story audio muted-unmuted event Tracking -->
+<amp-analytics type="gtag" data-credentials="include">
+    <script type="application/json">
+        {
+            "triggers": {
+                "storyAudioMuted": {
+                    "on": "story-audio-muted",
+                    "vars": {
+                        "send_to": ["G-2Y1PP6JNH1"],
+                        "event_name": "story_muted",
+                        "client_ID": "CLIENT_ID(_ga).",
+                        "storyPageIndex": "${storyPageIndex}",
+                        "storyPageId": "${storyPageId}",
+                        "totalStoryCount": "${storyPageCount}",
+                        "storyProgress": "${storyProgress}",
+                        "title": "${title}",                        
+                        "storyIsMuted": "${storyIsMuted}",
+                        "storyMode": "${storyAdvancementMode}" 
+                    }
+                },     
+                "storyAudioUnmuted": {
+                     "on": "story-audio-unmuted",
+                     "vars": {                            
+                        "send_to": ["G-2Y1PP6JNH1"],
+                        "event_name": "story_unmuted",
+                        "client_ID": "CLIENT_ID(_ga).",
+                        "storyPageIndex": "${storyPageIndex}",
+                        "storyPageId": "${storyPageId}",
+                        "totalStoryCount": "${storyPageCount}",
+                        "storyProgress": "${storyProgress}",
+                        "title": "${title}",                        
+                        "storyIsMuted": "${storyIsMuted}",
+                        "storyMode": "${storyAdvancementMode}" 
+                    }
+                    }
+                }
+            }
+    </script>
+</amp-analytics> 
+
+
+<!-- Story page attachment enter event Tracking -->
+<amp-analytics type="gtag" data-credentials="include">
+    <script type="application/json">
+        {
+            "triggers": {
+                "storyAttach": {
+                    "on": "story-page-attachment-enter",
+                    "vars": {
+                        "send_to": ["G-2Y1PP6JNH1"],
+                        "client_ID": "CLIENT_ID(_ga).",
+                        "event_name": "story_page_attachment",
+                        "storyPageIndex": "${storyPageIndex}",
+                        "storyPageId": "${storyPageId}",
+                        "totalStoryCount": "${storyPageCount}",
+                        "storyProgress": "${storyProgress}",
+                        "title": "${title}",                        
+                        "storyIsMuted": "${storyIsMuted}",
+                        "storyMode": "${storyAdvancementMode}" 
+                    }
+                }
+            }
+        }
+    </script>
+</amp-analytics> 
+
+
+<!-- Story click through event Tracking -->
+<amp-analytics type="gtag" data-credentials="include">
+    <script type="application/json">
+        {
+            "triggers": {
+                "trackClickThrough": {
+                    "on": "story-click-through",
+                    "vars": {
+                        "send_to": ["G-2Y1PP6JNH1"],
+                        "client_ID": "CLIENT_ID(_ga).",
+                        "event_name": "story_click_through",
+                        "storyPageIndex": "${storyPageIndex}",
+                        "storyPageId": "${storyPageId}",
+                        "totalStoryCount": "${storyPageCount}",
+                        "storyProgress": "${storyProgress}",
+                        "title": "${title}",                        
+                        "storyIsMuted": "${storyIsMuted}",
+                        "storyMode": "${storyAdvancementMode}" 
+                    }
+                }
+            }
+        }
+    </script>
+</amp-analytics> 
+
+
+<!-- Share icon event Tracking -->
+<amp-analytics type="gtag" data-credentials="include">
+    <script type="application/json">
+        {
+            "triggers": {
+                "trackShareOpen": {
+                    "on": "story-open",
+                    "tagName": "amp-story-share-menu",
+                    "vars": {
+                        "send_to": ["G-2Y1PP6JNH1"],
+                        "client_ID": "CLIENT_ID(_ga).",
+                        "event_name": "story_click_through",
+                        "storyPageIndex": "${storyPageIndex}",
+                        "storyPageId": "${storyPageId}",
+                        "totalStoryCount": "${storyPageCount}",
+                        "storyProgress": "${storyProgress}",
+                        "title": "${title}",                        
+                        "storyIsMuted": "${storyIsMuted}",
+                        "storyMode": "${storyAdvancementMode}" 
+                    }
+                }
+            }
+        }
+    </script>
+</amp-analytics> 
+
+
+
+    <!-- All events in one Trigger -->
+    <amp-analytics type="gtag" data-credentials="include">
+        <script type="application/json">
+        {
+          "vars" : {
+            "gtag_id": "G-06YPTYXR3K",
+            "config" : {
+              "G-06YPTYXR3K": {  
+                "client_ID": "CLIENT_ID(_ga).",
+                "url": "${ampdocUrl}",
+                "title": "${title}",
+                "host_name": "AMPDOC_HOST"
+              }
+            }
+        },
+        
+            "triggers": {
+                "trackStoryloaded": {
+                    "on": "story-content-loaded",
+                    "vars": {
+                        "event_name": "story_page_load",
+                        "client_ID": "CLIENT_ID(_ga).",
+                        "totalStoryCount": "${storyPageCount}",
+                        "client_ID": "CLIENT_ID(_ga).",
+                        "title": "${title}",
+                        "storyIsMuted": "${storyIsMuted}"
+                    }
+                },
+                "storyPageVisible": {
+                    "on": "story-page-visible",
+                    "vars": {
+                        "event_name": "story_pages_viewed",
+                        "client_ID": "CLIENT_ID(_ga).",
+                        "storyPageIndex": "${storyPageIndex}",
+                        "storyPageId": "${storyPageId}",
+                        "totalStoryCount": "${storyPageCount}",
+                        "storyProgress": "${storyProgress}",
+                        "title": "${title}",                        
+                        "storyIsMuted": "${storyIsMuted}",
+                        "storyMode": "${storyAdvancementMode}" 
+                    }
+                },
+                "storyLastPageVisible": {
+                    "on": "story-last-page-visible",
+                    "vars": {
+                        "event_name": "story_completed",
+                        "client_ID": "CLIENT_ID(_ga).",
+                        "storyPageIndex": "${storyPageIndex}",
+                        "storyPageId": "${storyPageId}",
+                        "totalStoryCount": "${storyPageCount}",
+                        "storyProgress": "${storyProgress}",
+                        "title": "${title}",                        
+                        "storyIsMuted": "${storyIsMuted}",
+                        "storyMode": "${storyAdvancementMode}" 
+                    }
+                },
+                "storyAudioMuted": {
+                    "on": "story-audio-muted",
+                    "vars": {
+                        "event_name": "story_muted",
+                        "client_ID": "CLIENT_ID(_ga).",
+                        "storyPageIndex": "${storyPageIndex}",
+                        "storyPageId": "${storyPageId}",
+                        "totalStoryCount": "${storyPageCount}",
+                        "storyProgress": "${storyProgress}",
+                        "title": "${title}",                        
+                        "storyIsMuted": "${storyIsMuted}",
+                        "storyMode": "${storyAdvancementMode}" 
+                    }
+                },     
+                "storyAudioUnmuted": {
+                     "on": "story-audio-unmuted",
+                     "vars": {                            
+                        "event_name": "story_unmuted",
+                        "client_ID": "CLIENT_ID(_ga).",
+                        "storyPageIndex": "${storyPageIndex}",
+                        "storyPageId": "${storyPageId}",
+                        "totalStoryCount": "${storyPageCount}",
+                        "storyProgress": "${storyProgress}",
+                        "title": "${title}",                        
+                        "storyIsMuted": "${storyIsMuted}",
+                        "storyMode": "${storyAdvancementMode}" 
+                    }
+                    },
+                    "storyAttach": {
+                        "on": "story-page-attachment-enter",
+                        "vars": {
+                            "client_ID": "CLIENT_ID(_ga).",
+                            "event_name": "story_page_attachment",
+                            "storyPageIndex": "${storyPageIndex}",
+                            "storyPageId": "${storyPageId}",
+                            "totalStoryCount": "${storyPageCount}",
+                            "storyProgress": "${storyProgress}",
+                            "title": "${title}",                        
+                            "storyIsMuted": "${storyIsMuted}",
+                            "storyMode": "${storyAdvancementMode}" 
+                        }
+                    },
+                    "trackClickThrough": {
+                        "on": "story-click-through",
+                        "vars": {
+                            "client_ID": "CLIENT_ID(_ga).",
+                            "event_name": "story_click_through",
+                            "storyPageIndex": "${storyPageIndex}",
+                            "storyPageId": "${storyPageId}",
+                            "totalStoryCount": "${storyPageCount}",
+                            "storyProgress": "${storyProgress}",
+                            "title": "${title}",                        
+                            "storyIsMuted": "${storyIsMuted}",
+                            "storyMode": "${storyAdvancementMode}" 
+                        }
+                    },
+                    "trackShareOpen": {
+                        "on": "story-open",
+                        "tagName": "amp-story-share-menu",
+                        "vars": {
+                            "client_ID": "CLIENT_ID(_ga).",
+                            "event_name": "story_click_through",
+                            "storyPageIndex": "${storyPageIndex}",
+                            "storyPageId": "${storyPageId}",
+                            "totalStoryCount": "${storyPageCount}",
+                            "storyProgress": "${storyProgress}",
+                            "title": "${title}",                        
+                            "storyIsMuted": "${storyIsMuted}",
+                            "storyMode": "${storyAdvancementMode}" 
+                        }
+                    }              
+            }
+        }
+        </script>
+    </amp-analytics>
+
+        <amp-story-bookend src="https://amp.dev/static/samples/json/bookend.json" layout="nodisplay">
+        </amp-story-bookend>
+
+    </amp-story>
+
+
+    
+</body>
+
+</html>
